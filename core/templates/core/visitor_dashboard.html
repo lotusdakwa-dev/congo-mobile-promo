@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="max-width: 1200px; margin: 40px auto; padding: 0 20px; color: var(--text-color);">
+    
+    <!-- En-tête de bienvenue -->
+    <div style="background: linear-gradient(135deg, #0d1b2a, #1b263b); border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; margin-bottom: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+        <h1 style="font-size: 32px; margin-bottom: 10px; font-weight: 700;">Bienvenue sur Congo Mobile Promo !</h1>
+        <p style="color: var(--text-muted); font-size: 16px;">Votre destination de confiance pour la haute technologie à Kinshasa.</p>
+        <div style="margin-top: 20px; display: inline-block; background: var(--card-bg); padding: 12px 20px; border-radius: 10px; border: 1px solid var(--border-color);">
+            <span style="font-size: 14px; color: var(--text-muted);">Articles disponibles en ligne :</span>
+            <strong style="font-size: 20px; color: var(--accent); margin-left: 10px;">{{ total_products }}</strong>
+        </div>
+    </div>
+
+    <!-- Section Publicités et Promotions -->
+    <div style="margin-bottom: 40px;">
+        <h2 style="font-size: 24px; margin-bottom: 20px; font-weight: 600;">🔥 Promotions & Offres Spéciales</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px;">
+                <span style="background: var(--accent); color: white; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: bold;">SUPER PROMO</span>
+                <h3 style="margin: 15px 0 10px 0; font-size: 20px;">Livraison Express à Kinshasa</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Profitez d'une livraison rapide et sécurisée dans toutes les communes de Kinshasa (Gombe, Kalamu, Barumbu, Limete...).</p>
+            </div>
+            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px;">
+                <span style="background: #2a9d8f; color: white; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: bold;">GARANTIE 100%</span>
+                <h3 style="margin: 15px 0 10px 0; font-size: 20px;">Appareils Certifiés Haut de Gamme</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Tous nos smartphones et ordinateurs portables (Apple, Samsung, Dell, HP) sont rigoureusement testés et garantis.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conseils d'utilisation pour en profiter au mieux -->
+    <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px;">
+        <h2 style="font-size: 22px; margin-bottom: 15px; font-weight: 600;">💡 Conseils pour vos achats</h2>
+        <ul style="color: var(--text-muted); line-height: 1.8; padding-left: 20px;">
+            <li><strong style="color: var(--text-color);">Consultez le catalogue régulièrement :</strong> Nos stocks sont mis à jour chaque semaine avec les derniers modèles arrivés.</li>
+            <li><strong style="color: var(--text-color);">Commandez en un clic :</strong> Cliquez sur "Commander" sur n'importe quel article pour enregistrer votre demande instantanément.</li>
+            <li><strong style="color: var(--text-color);">Contactez-nous :</strong> Pour toute commande spéciale ou question sur un modèle précis, nos équipes à Kinshasa sont à votre écoute.</li>
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

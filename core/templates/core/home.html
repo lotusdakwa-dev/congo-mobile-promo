@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <span class="hero-badge">Congo Mobile Promo</span>
+        <h1>Découvrez les meilleures offres sur les smartphones et accessoires à Kinshasa</h1>
+        <p>Profitez d’une page d’accueil moderne avec une image de marque soignée, un style structuré et des promotions spécialement conçues pour vous.</p>
+        <div class="hero-btns">
+            <a href="{% url 'product_list' %}" class="btn-primary">Voir la boutique</a>
+            <a href="{% url 'cart_detail' %}" class="btn-secondary">Mon panier</a>
+        </div>
+    </div>
+</section>
+
+<div class="section-container">
+    <h2>Offres Spéciales</h2>
+
+    <div class="ad-grid">
+        <article class="promo-card promo-card--gold">
+            <span class="promo-tag">Top vente</span>
+            <h3>Smartphones à -20%</h3>
+            <p>Profitez d’une réduction exceptionnelle sur une sélection de mobiles haut de gamme.</p>
+            <a href="{% url 'product_list' %}" class="btn-primary">Voir les offres</a>
+        </article>
+
+        <article class="promo-card promo-card--blue">
+            <span class="promo-tag">Nouveau stock</span>
+            <h3>Accessoires indispensables</h3>
+            <p>Coques, chargeurs et écouteurs disponibles maintenant pour compléter votre smartphone.</p>
+            <a href="{% url 'product_list' %}" class="btn-primary">Découvrir</a>
+        </article>
+
+        <article class="promo-card promo-card--dark">
+            <span class="promo-tag">Offre limitée</span>
+            <h3>Livraison rapide Kinshasa</h3>
+            <p>Commandez aujourd’hui et recevez votre colis en moins de 48h dans toute la ville.</p>
+            <a href="{% url 'cart_detail' %}" class="btn-primary">Commander maintenant</a>
+        </article>
+    </div>
+</div>
+{% endblock %}
