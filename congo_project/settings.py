@@ -5,6 +5,11 @@ Django settings for congo_project project.
 from pathlib import Path
 import os
 
+
+# ============================================================
+# BASE
+# ============================================================
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -12,15 +17,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SÉCURITÉ
 # ============================================================
 
-SECRET_KEY = "django-insecure-temporary-key-change-this"
+# La clé doit idéalement être définie dans Render > Environment
+# et ne doit jamais être publiée sur GitHub.
 SECRET_KEY = os.environ.get(
-    "SECRET_KEY",
-    "django-insecure-dev-key-change-this-in-render"
-)
+    "SECRET_KEY"
+) or "django-insecure-local-development-key-change-this"
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "congo-mobile-promo.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # ============================================================
@@ -46,6 +55,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
 
+    # Gestion des fichiers statiques sur Render
     "whitenoise.middleware.WhiteNoiseMiddleware",
 
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -58,10 +68,15 @@ MIDDLEWARE = [
 
 
 # ============================================================
-# URL / TEMPLATES
+# URLS
 # ============================================================
 
 ROOT_URLCONF = "congo_project.urls"
+
+
+# ============================================================
+# TEMPLATES
+# ============================================================
 
 TEMPLATES = [
     {
@@ -79,6 +94,11 @@ TEMPLATES = [
         },
     },
 ]
+
+
+# ============================================================
+# WSGI
+# ============================================================
 
 WSGI_APPLICATION = "congo_project.wsgi.application"
 
@@ -101,16 +121,28 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "UserAttributeSimilarityValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "MinimumLengthValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "CommonPasswordValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "NumericPasswordValidator"
+        ),
     },
 ]
 
@@ -137,7 +169,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
 # ============================================================
-# FICHIERS MÉDIA / IMAGES DES PRODUITS
+# FICHIERS MÉDIA
 # ============================================================
 
 MEDIA_URL = "/media/"
@@ -153,7 +185,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # ============================================================
-# CODE PIN DU TABLEAU DE BORD
+# TABLEAU DE BORD
 # ============================================================
 
-ADMIN_DASHBOARD_PIN = "1234"
+ADMIN_DASHBOARD_PIN = os.environ.get(
+    "ADMIN_DASHBOARD_PIN",
+    "1234"
+)
