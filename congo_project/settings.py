@@ -12,6 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SÉCURITÉ
 # ============================================================
 
+SECRET_KEY = "django-insecure-temporary-key-change-this"
 SECRET_KEY = os.environ.get(
     "SECRET_KEY",
     "django-insecure-dev-key-change-this-in-render"
